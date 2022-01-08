@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tech-trends-deployment
+  labels:
+    app: tech-trends
+  namespace: sandbox
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: tech-trends
+  template:
+    metadata:
+      labels:
+        app: tech-trends
+    spec:
+      containers:
+      - name: tech-trends-web
+        image: xzzyassin/tech-trends:latest
+        ports:
+          - containerPort: 3111

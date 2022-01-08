@@ -4,3 +4,5 @@ project/techtrends/__pycache__/
 project/techtrends/venv/
 
 project/techtrends/database.db
+
+project/.vagrant/
