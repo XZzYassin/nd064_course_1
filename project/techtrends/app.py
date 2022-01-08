@@ -76,11 +76,11 @@ def metrics():
 def post(post_id):
     post = get_post(post_id)
     if post is None:
-        app.logger.error(f'Article #{post_id} not found!')
+        app.logger.error('Article #{} not found!'.format(post_id))
         return render_template('404.html'), 404
     else:
         title = post['title']
-        app.logger.debug(f'Article "{title}" retrieved!')
+        app.logger.debug('Article "{}" retrieved!'.format(title))
         return render_template('post.html', post=post)
 
 # Define the About Us page
@@ -105,7 +105,7 @@ def create():
             connection.commit()
             connection.close()
 
-            app.logger.debug(f'Article "{title}" created!')
+            app.logger.debug('Article "{}" created!'.format(title))
 
             return redirect(url_for('index'))
 

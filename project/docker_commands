@@ -1,11 +1,27 @@
-## Docker commands used to build the application 
-# TODO: insert the docker build command
+## Docker commands used to build the application
+docker build -t techtrends .
 
 ## Docker commands used to run the application
-# TODO: insert the docker run command
+docker run -p 7111:3111 -d --name techtrends_1 techtrends
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+docker logs -f techtrends_1
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+2022-01-08 00:21:17,797 -  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+2022-01-08 00:21:56,429 - Article "2020 CNCF Annual Report" retrieved!
+2022-01-08 00:21:56,450 - 172.17.0.1 - - [08/Jan/2022 00:21:56] "GET /1 HTTP/1.1" 200 -
+2022-01-08 00:22:04,390 - About us page viewed!
+2022-01-08 00:22:04,394 - 172.17.0.1 - - [08/Jan/2022 00:22:04] "GET /about HTTP/1.1" 200 -
+2022-01-08 00:22:12,599 - 172.17.0.1 - - [08/Jan/2022 00:22:12] "GET /create HTTP/1.1" 200 -
+2022-01-08 00:22:35,834 - Article "Right-wing social app Parler raises $20M in funding" created!
+2022-01-08 00:22:35,836 - 172.17.0.1 - - [08/Jan/2022 00:22:35] "POST /create HTTP/1.1" 302 -
+2022-01-08 00:22:35,856 - 172.17.0.1 - - [08/Jan/2022 00:22:35] "GET / HTTP/1.1" 200 -
+2022-01-08 00:23:58,688 - Article #777 not found!
+2022-01-08 00:23:58,697 - 172.17.0.1 - - [08/Jan/2022 00:23:58] "GET /777 HTTP/1.1" 404 -
