@@ -18,8 +18,8 @@ spec:
       containers:
         - name: {{ .Values.image.repository }}-web
           image: xzzyassin/{{ .Values.image.repository }}:{{ .Values.image.tag }}
-          pullPolicy: {{ .Values.image.pullPolicy }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: {{ .Values.namespace.name }}
+            - containerPort: {{ .Values.service.targetPort }}
           resources:
 {{  toYaml .Values.resources | indent 12 }}

@@ -1,6 +1,9 @@
 apiVersion: v1
 name: techtrends
-keywords: techtrends
+describtion: A Flask application that lists the latest articles within the cloud-native ecosystem.
+keywords:
+  - techtrends
+  - python
 version: 1.0.0
 maintainers:
   - name: Mumen Yassin

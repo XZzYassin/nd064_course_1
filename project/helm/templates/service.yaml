@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ .Values.image.repository }}-service
-  namespace: {{ .Values.image.repository }}
+  namespace: {{ .Values.namespace.name }}
 spec:
   selector:
     app: {{ .Values.namespace.name }}
@@ -11,4 +11,3 @@ spec:
       port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort }}
   type: {{ .Values.service.type }}
-  loadBalancer: {}
