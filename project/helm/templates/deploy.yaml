@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.image.repository }}-deployment
+  labels:
+    app: {{ .Values.image.repository }}
+  namespace: {{ .Values.namespace.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.image.repository }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.image.repository }}
+    spec:
+      containers:
+        - name: {{ .Values.image.repository }}-web
+          image: xzzyassin/{{ .Values.image.repository }}:{{ .Values.image.tag }}
+          pullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.namespace.name }}
+          resources:
+{{  toYaml .Values.resources | indent 12 }}
